@@ -1,3 +1,7 @@
+_note_
+
+this project is extended by [static_fleet](http://github.com/maxpleaner/static_fleet), which provides a web interface and handles deployments to AWS's static website hosting on S3. 
+
 # static
 
 This is a static site building framework
