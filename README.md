@@ -37,7 +37,7 @@ With this markdown file, `foo` and `bar` will appear in the navbar as tags. The 
 
 ### Demo
 
-visit [http://maxpleaner.github.io/mindless](http://maxpleaner.github.io/static), which shows a bunch of youtube playlists that are tagged by genre
+visit [http://maxpleaner.github.io/mindless](http://maxpleaner.github.io/mindless), which shows a bunch of youtube playlists that are tagged by genre
 
 ### Main components
 
@@ -64,7 +64,7 @@ visit [http://maxpleaner.github.io/mindless](http://maxpleaner.github.io/static)
 
 - _helper methods_
   - `== render('_my_partial.slim')` will compile the slim template to html and embed it.
-  - `process_md_erb(absolute_path)` will compile a .md.erb file to html. This method returns `[html, metadata_hash]`
+  - `process_md_erb(path_relative_to_app_root)` will compile a .md.erb file to html. This method returns `[html, metadata_hash]`
 - _grid_
   - the `.grid` class denotes a grid. There should be only one of these.
   - the `.grid-item` class is a box in the grid. There are no exclicit defitions for 'columns' or 'rows' here - all that is handled dynamically by isotope.
@@ -73,7 +73,7 @@ visit [http://maxpleaner.github.io/mindless](http://maxpleaner.github.io/static)
 
 **in markdown files**
 - _embedding_
-  - `embed_md_erb(absolute_path)` is used to embed markdown files in one another.
+  - `embed_md_erb(path_relative_to_app_root)` is used to embed markdown files in one another.
 - _metadata_
   - There is a special syntax used to create tag definitions for markdown files:
 ```txt
@@ -87,7 +87,7 @@ TAGS: comma, separated, list, of, tags
 
 **Seed API**
 - first `require_relative('./seed.rb')`
-- then run `Seed.create(name: '<filename>.md.erb', content: "lorum", tags: ["tag", "list"])`. This will overwrite the file in source/markdown/ if it already exists.
+- then run `Seed.create(name: 'filename', content: "## some markdown", tags: ["tag", "list"])`. This will overwrite the file in source/markdown/<filename>.md.erb if it already exists.
 
 
 ### Starting the app
