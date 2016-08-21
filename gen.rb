@@ -3,7 +3,6 @@ require 'byebug'
 require 'slim'
 require 'sass'
 require 'coffee-script'
-require 'rerun'
 
 # Load stdlib dependencies
 require 'webrick'
