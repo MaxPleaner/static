@@ -68,7 +68,7 @@ class Gen
   def copy_other_files
     Dir.glob("./source/**/*").each do |path|
       extensions_to_ignore = ["slim", "coffee", "css", "js", "sass"]
-      next if extensions_to_ignore.any? { |exc| path.split(".")[-1].eql?(ext) }
+      next if extensions_to_ignore.any? { |ext| path.split(".")[-1].eql?(ext) }
       dest_path = path.gsub("source/", "dist/")
       dest_folder = dest_path.split("/")[0..-2].join("/")
       `mkdir -p #{dest_folder}`
