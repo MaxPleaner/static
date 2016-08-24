@@ -1,3 +1,9 @@
+# -------
+# IMPORTANT
+# this file is taken from http://github.com/maxpleaner/genrb
+# it should maintain parity with the gen.rb file there
+# -------
+
 # Load gem dependencies
 require 'byebug'
 require 'slim'
