@@ -45,6 +45,7 @@ class Gen
     preprocess_scripts
     preprocess_styles
     preprocess_slim
+    copy_other_files
     self
   end
   
@@ -54,6 +55,19 @@ class Gen
     `mkdir #{gen_out_dir}scripts/`
     `mkdir #{gen_out_dir}styles/`
     self
+  end
+  
+  # finds any file in source/ that is not slim/sass/coffee and copies it into dist.
+  # maintains the same directory structure. Only changes source/ to dist/
+  def copy_other_files
+    Dir.glob("./source/**/*").each do |path|
+      extensions_to_ignore = ["slim", "coffee", "css", "js", "sass"]
+      next if extensions_to_ignore.any? { |exc| path.split(".")[-1].eql?(ext) }
+      dest_path = path.gsub("source/", "dist/")
+      dest_folder = dest_path.split("/")[0..-2].join("/")
+      `mkdir -p #{dest_folder}`
+      `mv "#{path}" "#{dest_path}"`
+    end
   end
   
   # .slim => .html
